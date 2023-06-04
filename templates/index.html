@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contador de 'a'</title>
+</head>
+<body>
+    <h1>Contador de 'a'</h1>
+    <form action="{{ url_for('contar_a_route') }}" method="POST">
+        <label for="texto">Ingrese un texto:</label><br>
+        <input type="text" name="texto" id="texto"><br>
+        <input type="submit" value="Contar">
+    </form>
+</body>
+</html>

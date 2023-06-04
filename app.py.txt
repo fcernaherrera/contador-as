@@ -1,0 +1,23 @@
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+def contar_a(texto):
+    contador = 0
+    for caracter in texto:
+        if caracter == 'a':
+            contador += 1
+    return contador
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/contar_a', methods=['POST'])
+def contar_a_route():
+    texto = request.form['texto']
+    cantidad_a = contar_a(texto)
+    return render_template('resultado.html', cantidad_a=cantidad_a)
+
+if __name__ == '__main__':
+    app.run()
